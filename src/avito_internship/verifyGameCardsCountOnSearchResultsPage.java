@@ -1,4 +1,4 @@
-package avito_intership;
+package avito_internship;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,10 +34,18 @@ public class verifyGameCardsCountOnSearchResultsPage {
         driver.findElement(By.id("rc_select_3_list_2")).click();
         Thread.sleep(2000);
 
-        List<WebElement> gameCardsCount50 = driver.findElements(By.cssSelector(".ant-list-item"));
-       if (gameCardsCount50.size() != 50) {
-            System.out.println("Ошибка: Количество отображаемых игровых карточек на странице при выборе режима “50 на странице”. составляет " + gameCardsCount50.size());
-        }
+       List<WebElement> gameCardsCount50 = driver.findElements(By.cssSelector(".ant-list-item"));
+       try {
+           assertEquals(gameCardsCount50.size(), 50);
+       } catch (AssertionError error) {
+           System.out.println("Ошибка: Количество отображаемых игровых карточек на странице при выборе режима “50 на странице” составляет " + gameCardsCount50.size());
+       }
+
+      // if (gameCardsCount50.size() != 50) {
+        //    System.out.println("Ошибка: Количество отображаемых игровых карточек на странице при выборе режима “50 на странице”. составляет " + gameCardsCount50.size());
+       // }
+
+
 
         driver.findElement(By.cssSelector(".ant-pagination-options")).click();
         driver.findElement(By.id("rc_select_3_list_3")).click();

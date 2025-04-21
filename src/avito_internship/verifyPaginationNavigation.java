@@ -1,4 +1,4 @@
-package avito_intership;
+package avito_internship;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
